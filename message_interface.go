@@ -71,9 +71,3 @@ func RawMsgFromWasmMsg(msg WasmMsg) RawMsg {
 		extra:   msg.Encode(),
 	}
 }
-
-type WasmMsg interface {
-	Encode() map[string]any
-	Decode(safejs.Value) error
-	MsgType() string
-}
