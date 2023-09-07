@@ -126,8 +126,6 @@ func (m *WasmConnMessage) Decode(e safejs.Value) error {
 	if err != nil {
 		return err
 	}
-	//debug.PrintStack()
-	//fmt.Println("decode len", msgLen)
 	dst := make([]byte, msgLen)
 	_, err = safejs.CopyBytesToGo(dst, bytes)
 	if err != nil {
