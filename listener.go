@@ -3,19 +3,19 @@ package wasmconn
 import (
 	"net"
 
-	"github.com/hack-pad/go-webworkers/worker"
 	"github.com/magodo/go-wasmww"
+	"github.com/magodo/go-webworkers/types"
 )
 
 type Listener struct {
 	connectStr      string
 	postMessageFunc PostFunc
-	eventChan       <-chan worker.MessageEvent
+	eventChan       <-chan types.MessageEvent
 	cancelFunc      wasmww.WebWorkerCloseFunc
 	connChans       []chan WasmMsg
 }
 
-func NewListener(connectStr string, postMessageFunc PostFunc, eventChan <-chan worker.MessageEvent, cancelFunc wasmww.WebWorkerCloseFunc) *Listener {
+func NewListener(connectStr string, postMessageFunc PostFunc, eventChan <-chan types.MessageEvent, cancelFunc wasmww.WebWorkerCloseFunc) *Listener {
 	return &Listener{
 		connectStr,
 		postMessageFunc,

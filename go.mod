@@ -4,9 +4,9 @@ go 1.21.0
 
 require (
 	github.com/google/uuid v1.3.1
-	github.com/hack-pad/go-webworkers v0.1.0
 	github.com/hack-pad/safejs v0.1.1
-	github.com/magodo/go-wasmww v0.0.0-20230906025359-2e8637e4dd7d
+	github.com/magodo/go-wasmww v0.0.0-20230908032128-2fcd51f45e90
+	github.com/magodo/go-webworkers v0.0.0-20230908031629-08756dba1cd8
 )
 
 require (

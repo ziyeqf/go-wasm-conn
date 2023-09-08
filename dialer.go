@@ -4,8 +4,8 @@ import (
 	"net"
 
 	"github.com/google/uuid"
-	"github.com/hack-pad/go-webworkers/worker"
 	"github.com/magodo/go-wasmww"
+	"github.com/magodo/go-webworkers/types"
 )
 
 type Dialer struct {
@@ -60,7 +60,7 @@ func (d *Dialer) Dial() (net.Conn, error) {
 	return NewWasmConn(connId, d.workerConn.PostMessage, startMsgChanProxy(d.workerConn.EventChannel())), nil
 }
 
-func startMsgChanProxy(eventChan <-chan worker.MessageEvent) <-chan WasmMsg {
+func startMsgChanProxy(eventChan <-chan types.MessageEvent) <-chan WasmMsg {
 	msgCh := make(chan WasmMsg, 0)
 	go func() {
 		for event := range eventChan {
