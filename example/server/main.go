@@ -9,16 +9,16 @@ import (
 )
 
 func main() {
-	self, err := wasmww.SelfConn()
+	self, err := wasmww.NewSelfConn()
 	if err != nil {
 		log.Fatal(err)
 	}
-	ch, closeFn, err := self.SetupConn()
+	ch, err := self.SetupConn()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	listener := wasmconn.NewListener("test", self.PostMessage, ch, closeFn)
+	listener := wasmconn.NewListener("test", self.PostMessage, ch, self.Close)
 
 	doneCh := make(chan interface{}, 0)
 	go func() {

@@ -10,12 +10,12 @@ import (
 type Listener struct {
 	connectStr      string
 	postMessageFunc PostFunc
-	eventChan       <-chan types.MessageEvent
+	eventChan       <-chan types.MessageEventMessage
 	cancelFunc      wasmww.WebWorkerCloseFunc
 	connChans       []chan WasmMsg
 }
 
-func NewListener(connectStr string, postMessageFunc PostFunc, eventChan <-chan types.MessageEvent, cancelFunc wasmww.WebWorkerCloseFunc) *Listener {
+func NewListener(connectStr string, postMessageFunc PostFunc, eventChan <-chan types.MessageEventMessage, cancelFunc wasmww.WebWorkerCloseFunc) *Listener {
 	return &Listener{
 		connectStr,
 		postMessageFunc,
