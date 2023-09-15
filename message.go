@@ -1,11 +1,5 @@
 package wasmconn
 
-import (
-	"syscall/js"
-
-	"github.com/hack-pad/safejs"
-)
-
 type wasmConnRequest struct {
 	ConnectStr string
 	ConnId     string
