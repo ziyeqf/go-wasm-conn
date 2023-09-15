@@ -31,7 +31,7 @@ func EncodeWasmMsg[T WasmMsg](m T) (safejs.Value, []safejs.Value) {
 	jsArray := js.Global().Get("Uint8Array").New(buf.Len())
 	js.CopyBytesToJS(jsArray, buf.Bytes())
 	safeArray := safejs.Safe(jsArray)
-	return safeArray, []safejs.Value{safeArray}
+	return safeArray, []safejs.Value{}
 }
 
 func ParseWasmMsg[T WasmMsg](jsMsg safejs.Value) (*T, error) {
