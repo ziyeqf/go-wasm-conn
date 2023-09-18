@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"syscall/js"
 
 	"github.com/magodo/go-wasmww"
 	wasmconn "github.com/ziyeqf/go-wasm-conn"
@@ -30,7 +29,6 @@ func main() {
 			go func() {
 				b := make([]byte, 5)
 				conn.Read(b)
-				js.Global().Get("console").Call("log", js.ValueOf(string(b)))
 				conn.Write([]byte("Pong!"))
 				conn.Close()
 			}()
